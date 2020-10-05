@@ -1,15 +1,15 @@
 CREATE TABLE cidade (
     nome VARCHAR(20),
-    cep INT NOT NULL PRIMARY KEY,
+    cep DECIMAL(8) NOT NULL UNIQUE PRIMARY KEY,
     numero_habitantes INT(12),
-    eh_capital BOOLEAN,
+    capital BOOLEAN,
     estado VARCHAR(2) NOT NULL,
-    renda_percapita DECIMAL(7 , 2 ),
+    renda_per_capita DECIMAL(7 , 2 ),
     data_fundacao DATE
 );
 
-INSERT INTO estrelas.cidade (nome, cep, numero_habitantes, eh_capital,
- estado, renda_percapita, data_fundacao)
+INSERT INTO estrelas.cidade (nome, cep, numero_habitantes, capital,
+ estado, renda_per_capita, data_fundacao)
 VALUES
 ('Brasília', 71691000, 2570160, true, 'DF', 2686.00, '1960-04-21'),
 ('Alcobaça', 45910000, 21271, false, 'BA', 1870.00, '1772-11-12'),
@@ -34,7 +34,7 @@ WHERE
     cep = 15280000;
 
 CREATE TABLE estado (
-    sigla VARCHAR(2) NOT NULL PRIMARY KEY,
+    sigla VARCHAR(2) NOT NULL UNIQUE PRIMARY KEY,
     nome VARCHAR(19)
 );
 
